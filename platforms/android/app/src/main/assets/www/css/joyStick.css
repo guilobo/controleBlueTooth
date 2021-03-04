@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background: url('https://cl.ly/bbe847182e06/most_seamless_leather_texture_by_koncaliev_d5mxasr-pre.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-items: center;
+}
+
+.controller-container {
+  width: 500px;
+  height: 90vh;
+}
+
+@font-face {
+    font-family: 'Digital-7';
+    src: url('https://cl.ly/b1cc558d5f0a/Digital-7.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.screen {
+  background: #DDF0D6;
+  width: 100%;
+  height: 150px;
+  border-radius: 8px;
+  display: flex;
+  font-family: 'Digital-7';
+}
+
+.main-text-section {
+  flex: 0.75;
+}
+
+.main-text {
+  font-size: 57px;
+  color: #434344;
+  max-width: 250px;
+  padding: 25px;
+}
+
+.speed-section {
+  flex: 0.25;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 7px;
+}
+
+.speed-label {
+  padding-top: 13px;
+  padding-right: 5px;
+}
+
+.speed-indicators {
+  display: flex;
+  width: 12px;
+  height: 100%;
+  flex-direction: column-reverse;
+  padding: 10px 0px;
+}
+
+.speed-indicator {
+  width: 12px;
+  height: 20px;
+  background: #434344;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.joysticks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.joystick-area {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  margin: 0 35px;
+  border-radius: 100px;
+  background-image: linear-gradient(131deg, #4C4646 4%, #1D1C1C 59%);
+  border: 1px solid #292828;
+  align-items: center;
+  justify-content: center;
+}
+
+.movement-channel {
+  display: flex;
+  background: #414141;
+  border: 1px solid #383838;
+  box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.50);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.left.joystick-area .movement-channel {
+  width: 20px;
+  height: 90%;
+}
+
+.right.joystick-area .movement-channel {
+  width: 90%;
+  height: 20px;
+}
+
+.joystick {
+  width: 40px;
+  height: 40px;
+  border-radius: 150px;
+  display: flex;
+  background: #878787;
+  border: 0 solid #242323;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  align-items: center;
+  justify-content: center;
+}
+
+.joystick-inner {
+  width: 30px;
+  height: 30px;
+  border-radius: 150px;
+  background: #4B4646;
+  box-shadow: inset 0 0 3px 0 rgba(0,0,0,0.21);
+}
