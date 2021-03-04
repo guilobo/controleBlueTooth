@@ -1,2 +1,2 @@
   M.AutoInit();
-.orientation.lock('portrait');
+//.orientation.lock('portrait');
