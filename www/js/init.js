@@ -1,2 +1,5 @@
   M.AutoInit();
-//.orientation.lock('portrait');
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+}

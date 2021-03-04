@@ -7,12 +7,16 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-bluetooth-serial": {
       "PACKAGE_NAME": "br.com.indoortech.controleBluetooth"
     },
-    "cordova-plugin-bluetooth-serial": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "br.com.indoortech.controleBluetooth"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "br.com.indoortech.controleBluetooth"
+    }
+  }
 }
