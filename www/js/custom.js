@@ -24,5 +24,13 @@ bluetoothSerial.list(function(devices) {
 })
 
 $('#m1-A').click(function(){
+  if ($('#m1-A').text()=="A"){
+  $('#m1-A').html("a");
+  $('#m1-A').addClass("darken-4")
+}
+  else if ($('#m1-A').text()=="a"){
+  $('#m1-A').html("A");
+  $('#m1-A').removeClass("darken-4")
+}
   bluetoothSerial.write('N', function(){}, function(){});
 })
