@@ -5,7 +5,7 @@
 body {
   padding: 0px;
   margin: 0px;
-  background: url('https://cl.ly/bbe847182e06/most_seamless_leather_texture_by_koncaliev_d5mxasr-pre.jpg');
+  background: #01579b;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,21 +17,6 @@ body {
   height: 90vh;
 }
 
-@font-face {
-    font-family: 'Digital-7';
-    src: url('https://cl.ly/b1cc558d5f0a/Digital-7.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.screen {
-  background: #DDF0D6;
-  width: 100%;
-  height: 150px;
-  border-radius: 8px;
-  display: flex;
-  font-family: 'Digital-7';
-}
 
 .main-text-section {
   flex: 0.75;
