@@ -13,13 +13,14 @@ $('#configuracao').click(function(){
       "</tr>")
     })
     $("#tabela-bluetooth").find('a').click(function(){
+      var botaoClicado = this;
       bluetoothSerial.isConnected(
         function(){
           M.toast({html: 'Desconectando do dispositvo ' + device.name});
           bluetoothSerial.disconnect();
         },
       function(){
-        var mac = $(this).attr('mac');
+        var mac = $(botaoClicado).attr('mac');
         M.toast({html: 'Tentando conectar no mac: '+ mac});
         bluetoothSerial.connect(mac, function(){M.toast({html: 'Conectado no dispositvo '}); $('#conectar-bluetooth').addClass('.modal-close');}, function(){M.toast({html: 'Falha na conexão'})});
       });
