@@ -64,6 +64,7 @@ function moveCar(speedIncrease) {
   const speedRange = maxSpeed - minSpeed;
   const direction = getForwardsBackDirection(speedIncrease);
   const finalSpeed = 100 + (speedRange * Math.abs(speedIncrease));
+  console.log("Y"+finalSpeed)
   console.log(finalSpeed);
   console.log(direction);
   updateScreenText(direction);

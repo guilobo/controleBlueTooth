@@ -32,19 +32,16 @@ function onPause() {
 setInterval(function(){
   bluetoothSerial.isConnected(
     function() {
-        $('#configuracao').removeClass('.red');
-        $('#configuracao').addClass('.green');
+        $('#configuracao').removeClass('red');
+        $('#configuracao').addClass('green');
 
         $('#bluetooth').html("bluetooth_connected");
     },
     function() {
-      $('#configuracao').addClass('.red');
-      $('#configuracao').removeClass('.green');
+      $('#configuracao').addClass('red');
+      $('#configuracao').removeClass('green');
 
       $('#bluetooth').html("bluetooth_disabled");
     }
 );
-<<<<<<< HEAD
-=======
 }, 1000);
->>>>>>> 7eee4c24bd0a1efa85aa67cff884eb181a9751be
