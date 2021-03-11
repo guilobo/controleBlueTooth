@@ -4,9 +4,8 @@ $('#abre-bluetooth').click(function(){
 })
 
 $('#configuracoes-bt').click(function(){
-  M.toast({html: 'abrindo configs'});
   $("#tabela-bluetooth").html("");
-bluetoothSerial.list(function(devices) {
+  bluetoothSerial.list(function(devices) {
   devices.forEach(function(device) {
       $("#tabela-bluetooth").append("<tr>"+
         "<td>"+device.name+"</td>"+
@@ -16,8 +15,8 @@ bluetoothSerial.list(function(devices) {
   })
   $("#tabela-bluetooth").find('a').click(function(){
     var mac = $(this).attr('mac');
-     M.toast({html: 'tentando conectar no mac: '+ mac});
-    bluetoothSerial.connect(mac, function(){M.toast({html: 'deu certo'})}, function(){M.toast({html: 'nao deu certo'})});
+     M.toast({html: 'Tentando conectar no mac: '+ mac});
+    bluetoothSerial.connect(mac, function(){M.toast({html: 'Conectado no dispositvo '+ device.name})}, function(){M.toast({html: 'Falha na conexão'})});
   })
 }, function(){});
 
@@ -36,3 +35,24 @@ $('#m1-A').click(function(){
 }
   bluetoothSerial.write('N', function(){}, function(){});
 })
+
+/* Verifica conexão com o Bluetooth */
+bluetoothSerial.isConnected(
+    function() {
+        $('#configuracao').removeClass('.red');
+        $('#configuracao').addClass('.green');
+
+        $('#bluetooth').html("bluetooth_connected");
+    },
+    function() {
+      $('#configuracao').addClass('.red');
+      $('#configuracao').removeClass('.green');
+
+      $('#bluetooth').html("bluetooth_disabled");
+    }
+);
+
+/* Desliga o Bluetooth logo que fechar o app */
+window.addEventListener('beforeunload', function(event) {
+  bluetoothSerial.disconnect();
+});
