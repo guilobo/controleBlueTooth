@@ -7,7 +7,7 @@ $('#configuracao').click(function(){
   bluetoothSerial.list(function(devices) {
     devices.forEach(function(device) {
       $("#tabela-bluetooth").append("<tr>"+
-      "<td>"+device.name+"</td>"+
+      "<td><span class='badge'>1</span>"+device.name+"</td>"+
       "<td>"+device.id+"</td>"+
       "<td><a name='"+device.name+"' mac='"+device.id+"' class='waves-effect waves-light btn blue darken-3'>conectar</a></td>"+
       "</tr>")
@@ -38,9 +38,7 @@ $('#configuracao').click(function(){
               M.toast({html: conexao_mac});
               bluetoothSerial.connect(mac,
                 function(){
-                  var text_conect = 'Conectado no dispositvo ' + name;
-                  M.toast({html: text_conect});
-                  $('#menu-bt').addClass('.modal-close');
+                  $('#menu-bt').addClass('modal-close');
                 },
                 function(){
                   if(!desconectando){M.toast({html: 'Falha na conexão'})}
@@ -59,15 +57,30 @@ $('#configuracao').click(function(){
     }
 
     /* Verifica conexão com o Bluetooth */
+    var conectadoOld = false;
+    var conectado = false;
     setInterval(function(){
       bluetoothSerial.isConnected(
         function() {
+          conectado = true;
           $('#configuracao').removeClass('red');
           $('#configuracao').addClass('green');
-
           $('#bluetooth').html("bluetooth_connected");
+          if (conectadoOld != conectado){
+          conectadoOld = conectado;
+          var text_conect = 'Conectado no dispositvo ';
+          $('#menu-bt').addClass('modal-close');
+          M.toast({html: text_conect});
+        }
         },
         function() {
+          conectado = false;
+          if (conectadoOld != conectado){
+            conectadoOld = conectado;
+            var text_conect = 'Dispositvo desconectado';
+            M.toast({html: text_conect});
+          }
+
           $('#configuracao').addClass('red');
           $('#configuracao').removeClass('green');
 
