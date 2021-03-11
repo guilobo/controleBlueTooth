@@ -60,6 +60,6 @@ $('#m1-seta-esquerda').click(function(){
 });
 
 /* Fecha o modal quando clicar em conectar o bluetooth */
-$('#conectar-bluetooth').click(function{
-  $('#conectar-bluetooth').addClass(.modal-close);
+$('#conectar-bluetooth').click(function(){
+  $('#conectar-bluetooth').addClass('.modal-close');
 });

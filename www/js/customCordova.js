@@ -38,6 +38,8 @@ bluetoothSerial.isConnected(
 );
 
 /* Desliga o Bluetooth logo que fechar o app */
-window.addEventListener('beforeunload', function(event) {
-  bluetoothSerial.disconnect();
-});
+document.addEventListener("pause", onPause, false);
+
+function onPause() {
+    bluetoothSerial.disconnect();
+}
