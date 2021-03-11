@@ -15,6 +15,7 @@ $('#configuracao').click(function(){
     $("#tabela-bluetooth").find('a').click(function(){
       var botao_clicado = this;
       var bt_conectado = false;
+      var desconectando = false;
       var name = $(botao_clicado).attr('name');
       var mac = $(botao_clicado).attr('mac');
       // Se já está conectado, então desconecta
@@ -28,11 +29,14 @@ $('#configuracao').click(function(){
           });
 
           if(bt_conectado){
+            desconectando = true;
             var text_desconect = 'Desconectando do dispositvo ' + name;
             M.toast({html: text_desconect});
+            setTimeout(function(){
+              desconectando = false;
+            }, 5000);
             bluetoothSerial.disconnect();
           }
-            setTimeout(function(){
               var conexao_mac = 'Tentando conectar no mac: '+ mac;
               M.toast({html: conexao_mac});
               bluetoothSerial.connect(mac,
@@ -42,9 +46,8 @@ $('#configuracao').click(function(){
                   $('#menu-bt').addClass('.modal-close');
                 },
                 function(){
-                  M.toast({html: 'Falha na conexão'})
+                  if(!desconectando){M.toast({html: 'Falha na conexão'})}
                 });
-            }, 500);
 
 
 
