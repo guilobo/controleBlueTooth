@@ -9,34 +9,42 @@ $('#configuracao').click(function(){
       $("#tabela-bluetooth").append("<tr>"+
       "<td>"+device.name+"</td>"+
       "<td>"+device.id+"</td>"+
-      "<td><a mac='"+device.id+"' class='waves-effect waves-light btn blue darken-3'>conectar</a></td>"+
+      "<td><a name='"+device.name+"' mac='"+device.id+"' class='waves-effect waves-light btn blue darken-3'>conectar</a></td>"+
       "</tr>")
     })
     $("#tabela-bluetooth").find('a').click(function(){
       var botao_clicado = this;
+      var bt_conectado = false;
       var name = $(botao_clicado).attr('name');
       var mac = $(botao_clicado).attr('mac');
       // Se já está conectado, então desconecta
       bluetoothSerial.isConnected(
         function(){
-          var text_desconect = 'Desconectando do dispositvo ' + name;
-          M.toast({html: text_desconect});
-          bluetoothSerial.disconnect();
+          bt_conectado = true;
         },
         // Se não, conceta no dispositivo
         function(){
-          var conexao_mac = 'Tentando conectar no mac: '+ mac;
-          M.toast({html: conexao_mac});
-          bluetoothSerial.connect(mac,
-            function(){
-              var text_conect = 'Conectado no dispositvo ' + name;
-              M.toast({html: text_conect});
-              $('#menu-bt').addClass('.modal-close');
-            },
-            function(){
-              M.toast({html: 'Falha na conexão'})
-            });
+          bt_conectado = false;
           });
+
+          if(bt_conectado){
+            var text_desconect = 'Desconectando do dispositvo ' + name;
+            M.toast({html: text_desconect});
+            bluetoothSerial.disconnect();
+          }
+            var conexao_mac = 'Tentando conectar no mac: '+ mac;
+            M.toast({html: conexao_mac});
+            bluetoothSerial.connect(mac,
+              function(){
+                var text_conect = 'Conectado no dispositvo ' + name;
+                M.toast({html: text_conect});
+                $('#menu-bt').addClass('.modal-close');
+              },
+              function(){
+                M.toast({html: 'Falha na conexão'})
+              });
+
+
         });
       });
     });
