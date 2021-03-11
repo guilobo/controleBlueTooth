@@ -9,7 +9,7 @@ $('#configuracao').click(function(){
       $("#tabela-bluetooth").append("<tr>"+
       "<td>"+device.name+"</td>"+
       "<td>"+device.id+"</td>"+
-      "<td><a mac='"+device.id+"' class='waves-effect waves-light btn'>conectar</a></td>"+
+      "<td><a mac='"+device.id+"' class='waves-effect waves-light btn blue darken-3'>conectar</a></td>"+
       "</tr>")
     })
     $("#tabela-bluetooth").find('a').click(function(){
@@ -22,11 +22,11 @@ $('#configuracao').click(function(){
         var mac = $(this).attr('mac');
         M.toast({html: 'Tentando conectar no mac: '+ mac});
         bluetoothSerial.connect(mac, function(){M.toast({html: 'Conectado no dispositvo '}); $('#conectar-bluetooth').addClass('.modal-close');}, function(){M.toast({html: 'Falha na conexão'})});
-      })
+      });
 
-    }, function(){});
+    });
 
-  })
+  });
 })
 
 /* Desliga o Bluetooth logo que fechar o app */
