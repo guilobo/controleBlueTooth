@@ -18,39 +18,47 @@
       <div class="nav-content blue">
         <ul class="tabs tabs-transparent">
           <li><a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a></li>
-          <li class="tab"><a class="active" href="#test1">Test 1</a></li>
+          <li class="tab"><a class="active" href="#controle1">mode 1</a></li>
           <li class="tab"><a href="#test2">Test 2</a></li>
-          <li class="tab"><a href="#menu-bt">Disabled Tab</a></li>
+          <li class="tab"><a href="#test3">Disabled Tab</a></li>
           <li class="tab"><a href="#test4">Test 4</a></li>
         </ul>
       </div>
     </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-      <li><a id = "configuracoes-bt" class="modal-trigger" href="#menu-bt">Configuração</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
+    <!-- Botão de configurações -->
+    <div class="fixed-action-btn">
+    <a id="configuracao" class="btn-floating btn-large red">
+      <i id="bluetooth" class="large material-icons">bluetooth_disabled</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a id="configuracoes-bt" href="#menu-bt" class="modal-trigger btn-floating blue"><i class="material-icons">bluetooth</i></a></li>
     </ul>
+  </div>
 
-    <div id="test1" class="col s12">
+    <!-- ********* CONTROLE 1 ********* -->
+    <div id="controle1" class="col s12">
       <div class="container">
 
         <!-- Botões de cima -->
         <div class="row">
           <div class="col s3 center">
-            <a id="m1-seta-esquerda"class="btn-large botao waves-effect waves-light btn-floating orange darken-3"><i class="material-icons botao">keyboard_arrow_left</i></a>
+            <a id="m1-seta-esquerda"class="btn-large botao waves-effect waves-light btn-floating orange "><i class="material-icons botao">keyboard_arrow_left</i></a>
           </div>
           <div class="col s2 center">
-            <a id="m1-A" class="btn-large botao waves-effect waves-light btn-floating light-green darken-4">A</a>
+            <a id="m1-A" class="btn-large botao waves-effect waves-light btn-floating light-green">A</a>
           </div>
           <div class="col s2 center">
-            <a id="m1-B" class="btn-large botao waves-effect waves-light btn-floating deep-purple darken-1">B</a>
+            <a id="m1-B" class="btn-large botao waves-effect waves-light btn-floating deep-purple ">B</a>
           </div>
           <div class="col s2 center">
-            <a id="m1-C" class="btn-large botao waves-effect waves-light btn-floating lime darken-4">C</a>
+            <a id="m1-C" class="btn-large botao waves-effect waves-light btn-floating brown ">C</a>
           </div>
           <div class="col s3 center">
-            <a id="m1-seta-direita" class="btn-large botao waves-effect waves-light btn-floating orange darken-3"><i class="material-icons botao">keyboard_arrow_right</i></a>
+            <a id="m1-seta-direita" class="btn-large botao waves-effect waves-light btn-floating orange "><i class="material-icons botao">keyboard_arrow_right</i></a>
           </div>
         </div>
 
@@ -88,10 +96,18 @@
       </div>
     </div>
   </div>
-
   </div>
-  <div id="test2" class="col s12">
 
+  <!-- ********* CONTROLE 2 ********* -->
+  <div id="test2" class="col s12">
+  </div>
+
+  <!-- ********* CONTROLE 3 ********* -->
+  <div id="test3" class="col s12">
+  </div>
+
+  <!-- ********* CONTROLE 4 ********* -->
+  <div id="test4" class="col s12">
   </div>
 
   <div id="menu-bt" class="modal">
@@ -103,7 +119,7 @@
           <tr>
               <th>Nome</th>
               <th>mac</th>
-              <th>class</th>
+              <th>conect</th>
           </tr>
         </thead>
 
@@ -118,6 +134,7 @@
   </div>
 
 
+
   <!--JavaScript at end of body for optimized loading-->
   <script src="cordova.js"></script>
   <script src="js/index.js"></script>
@@ -129,5 +146,6 @@
   <script type="text/javascript" src="js/joyStick.js"></script>
   <script type="text/javascript" src="js/init.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+  <script type="text/javascript" src="js/customCordova.js"></script>
 </body>
 </html>
