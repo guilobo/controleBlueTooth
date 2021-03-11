@@ -44,6 +44,6 @@ function onPause() {
     bluetoothSerial.disconnect();
 }
 
-$('#desconecta-bt').click(function(){
-  bluetoothSerial.disconnect();
-});
+//$('#desconecta-bt').click(function(){
+//  bluetoothSerial.disconnect();
+//});
