@@ -22,15 +22,17 @@ bluetoothSerial.list(function(devices) {
 }, function(){});
 
 })
-
+/*teclas*/
+var upperCase= new RegExp('[A-Z]');
+var lowerCase= new RegExp('[a-z]');
 $('#m1-A').click(function(){
-  if ($('#m1-A').text()=="A"){
-  $('#m1-A').html("a");
-  $('#m1-A').addClass("darken-4")
+  if ($(this).text().match(upperCase)){
+  $(this).text($(this).text().toLowerCase());
+  $(this).addClass("darken-4")
 }
-  else if ($('#m1-A').text()=="a"){
-  $('#m1-A').html("A");
-  $('#m1-A').removeClass("darken-4")
+  else if ($(this).text().match(lowerCase)){
+  $(this).text($(this).text().toUpperCase());
+  $(this).removeClass("darken-4")
 }
   bluetoothSerial.write('N', function(){}, function(){});
 })
