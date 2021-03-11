@@ -22,6 +22,7 @@ $('#configuracao').click(function(){
       bluetoothSerial.isConnected(
         function(){
           bt_conectado = true;
+          desconectando = true;
         },
         // Se não, conecta no dispositivo
         function(){
@@ -32,9 +33,6 @@ $('#configuracao').click(function(){
             desconectando = true;
             var text_desconect = 'Desconectando do dispositvo ' + name;
             M.toast({html: text_desconect});
-            setTimeout(function(){
-              desconectando = false;
-            }, 5000);
             bluetoothSerial.disconnect();
           }
               var conexao_mac = 'Tentando conectar no mac: '+ mac;
