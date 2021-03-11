@@ -24,14 +24,17 @@ $('#configuracoes-bt').click(function(){
 /*teclas*/
 var upperCase= new RegExp('[A-Z]');
 var lowerCase= new RegExp('[a-z]');
-$('#m1-A').click(function(){
-  if ($(this).text().match(upperCase)){
-  $(this).text($(this).text().toLowerCase());
-  $(this).addClass("darken-4")
+
+function CaixaCaracterBotao(botao){
+  if ($(botao).text().match(upperCase)){
+  $(botao).text($(botao).text().toLowerCase());
+  $(botao).addClass("darken-4");
+  return 'l';
 }
-  else if ($(this).text().match(lowerCase)){
-  $(this).text($(this).text().toUpperCase());
-  $(this).removeClass("darken-4")
+  else if ($(botao).text().match(lowerCase)){
+  $(botao).text($(botao).text().toUpperCase());
+  $(botao).removeClass("darken-4");
+  return 'u';
 }
   bluetoothSerial.write('N', function(){}, function(){});
 })
@@ -55,4 +58,47 @@ bluetoothSerial.isConnected(
 /* Desliga o Bluetooth logo que fechar o app */
 window.addEventListener('beforeunload', function(event) {
   bluetoothSerial.disconnect();
+}
+
+$('#m1-A').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('A', function(){}, function(){});
+  else
+  bluetoothSerial.write('a', function(){}, function(){});
+});
+$('#m1-B').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('B', function(){}, function(){});
+  else
+  bluetoothSerial.write('b', function(){}, function(){});});
+$('#m1-C').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('C', function(){}, function(){});
+  else
+  bluetoothSerial.write('c', function(){}, function(){});
+});
+$('#m1-D').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('D', function(){}, function(){});
+  else
+  bluetoothSerial.write('d', function(){}, function(){});
+});
+$('#m1-E').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('E', function(){}, function(){});
+  else
+  bluetoothSerial.write('e', function(){}, function(){});
+});
+$('#m1-seta-esquerda').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('A', function(){}, function(){});
+  else
+  bluetoothSerial.write('a', function(){}, function(){});
+
 });
