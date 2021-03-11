@@ -53,7 +53,7 @@ $('#m1-E').click(function(){
 $('#m1-seta-esquerda').click(function(){
   bluetoothSerial.write('<', function(){}, function(){});
 });
-$('#m1-seta-esquerda').click(function(){
+$('#m1-seta-direita').click(function(){
   bluetoothSerial.write('>', function(){}, function(){});
 });
 

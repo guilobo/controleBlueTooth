@@ -21,6 +21,17 @@ $('#configuracao').click(function(){
 
 })
 
+/* Desliga o Bluetooth logo que fechar o app */
+document.addEventListener("pause", onPause, false);
+$('#desconecta-bt').click(function(){
+  M.toast({html: 'desconectando '})
+  bluetoothSerial.disconnect(function(){M.toast({html: 'desconectado '})},function(){M.toast({html: 'deu erro '})});
+});
+
+function onPause() {
+    bluetoothSerial.disconnect();
+}
+
 /* Verifica conexão com o Bluetooth */
 bluetoothSerial.isConnected(
     function() {
@@ -36,14 +47,3 @@ bluetoothSerial.isConnected(
       $('#bluetooth').html("bluetooth_disabled");
     }
 );
-
-/* Desliga o Bluetooth logo que fechar o app */
-document.addEventListener("pause", onPause, false);
-
-function onPause() {
-    bluetoothSerial.disconnect();
-}
-
-$('#desconecta-bt').click(function(){
-  bluetoothSerial.disconnect();
-});
