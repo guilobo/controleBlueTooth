@@ -15,7 +15,7 @@ $('#configuracao').click(function(){
   $("#tabela-bluetooth").find('a').click(function(){
     var mac = $(this).attr('mac');
      M.toast({html: 'Tentando conectar no mac: '+ mac});
-    bluetoothSerial.connect(mac, function(){M.toast({html: 'Conectado no dispositvo '+ device.name})}, function(){M.toast({html: 'Falha na conexão'})});
+    bluetoothSerial.connect(mac, function(){M.toast({html: 'Conectado no dispositvo '})}, function(){M.toast({html: 'Falha na conexão'})});
   })
 }, function(){});
 

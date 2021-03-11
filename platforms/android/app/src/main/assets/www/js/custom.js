@@ -51,10 +51,13 @@ $('#m1-E').click(function(){
   bluetoothSerial.write('e', function(){}, function(){});
 });
 $('#m1-seta-esquerda').click(function(){
-  var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
-  bluetoothSerial.write('A', function(){}, function(){});
-  else
-  bluetoothSerial.write('a', function(){}, function(){});
+  bluetoothSerial.write('<', function(){}, function(){});
+});
+$('#m1-seta-esquerda').click(function(){
+  bluetoothSerial.write('>', function(){}, function(){});
+});
 
+/* Fecha o modal quando clicar em conectar o bluetooth */
+$('#conectar-bluetooth').click(function(){
+  $('#conectar-bluetooth').addClass('.modal-close');
 });
