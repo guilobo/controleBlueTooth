@@ -22,7 +22,7 @@ $('#configuracao').click(function(){
         function(){
           bt_conectado = true;
         },
-        // Se não, conceta no dispositivo
+        // Se não, conecta no dispositivo
         function(){
           bt_conectado = false;
           });
@@ -32,17 +32,20 @@ $('#configuracao').click(function(){
             M.toast({html: text_desconect});
             bluetoothSerial.disconnect();
           }
-            var conexao_mac = 'Tentando conectar no mac: '+ mac;
-            M.toast({html: conexao_mac});
-            bluetoothSerial.connect(mac,
-              function(){
-                var text_conect = 'Conectado no dispositvo ' + name;
-                M.toast({html: text_conect});
-                $('#menu-bt').addClass('.modal-close');
-              },
-              function(){
-                M.toast({html: 'Falha na conexão'})
-              });
+            setTimeout(function(){
+              var conexao_mac = 'Tentando conectar no mac: '+ mac;
+              M.toast({html: conexao_mac});
+              bluetoothSerial.connect(mac,
+                function(){
+                  var text_conect = 'Conectado no dispositvo ' + name;
+                  M.toast({html: text_conect});
+                  $('#menu-bt').addClass('.modal-close');
+                },
+                function(){
+                  M.toast({html: 'Falha na conexão'})
+                });
+            }, 500);
+
 
 
         });
