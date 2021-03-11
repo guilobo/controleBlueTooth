@@ -43,3 +43,7 @@ document.addEventListener("pause", onPause, false);
 function onPause() {
     bluetoothSerial.disconnect();
 }
+
+$('#desconecta-bt').click(function(){
+  bluetoothSerial.disconnect();
+});
