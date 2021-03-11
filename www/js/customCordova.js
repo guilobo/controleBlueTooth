@@ -30,10 +30,9 @@ $('#configuracao').click(function(){
           });
 
           if(bt_conectado){
-            desconectando = true;
             var text_desconect = 'Desconectando do dispositvo ' + name;
             M.toast({html: text_desconect});
-            bluetoothSerial.disconnect();
+            bluetoothSerial.disconnect(M.toast({html: 'Dispositivo desconectado' },function(){});
           }
               var conexao_mac = 'Tentando conectar no mac: '+ mac;
               M.toast({html: conexao_mac});
