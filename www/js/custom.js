@@ -102,3 +102,8 @@ $('#m1-seta-esquerda').click(function(){
   bluetoothSerial.write('a', function(){}, function(){});
 
 });
+
+/* Fecha o modal quando clicar em conectar o bluetooth */
+$('#conectar-bluetooth').click(function{
+  $('#conectar-bluetooth').addClass(.modal-close);
+});
