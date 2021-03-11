@@ -13,42 +13,54 @@ $('#configuracao').click(function(){
       "</tr>")
     })
     $("#tabela-bluetooth").find('a').click(function(){
+      var botao_clicado = this;
+      var name = $(botao_clicado).attr('name');
+      var mac = $(botao_clicado).attr('mac');
+      // Se já está conectado, então desconecta
       bluetoothSerial.isConnected(
         function(){
-          M.toast({html: 'Desconectando do dispositvo ' + device.name});
+          var text_desconect = 'Desconectando do dispositvo ' + name;
+          M.toast({html: text_desconect});
           bluetoothSerial.disconnect();
         },
-      function(){
-        var mac = $(this).attr('mac');
-        M.toast({html: 'Tentando conectar no mac: '+ mac});
-        bluetoothSerial.connect(mac, function(){M.toast({html: 'Conectado no dispositvo '}); $('#conectar-bluetooth').addClass('.modal-close');}, function(){M.toast({html: 'Falha na conexão'})});
+        // Se não, conceta no dispositivo
+        function(){
+          var conexao_mac = 'Tentando conectar no mac: '+ mac;
+          M.toast({html: conexao_mac});
+          bluetoothSerial.connect(mac,
+            function(){
+              var text_conect = 'Conectado no dispositvo ' + name;
+              M.toast({html: text_conect});
+              $('#menu-bt').addClass('.modal-close');
+            },
+            function(){
+              M.toast({html: 'Falha na conexão'})
+            });
+          });
+        });
       });
-
     });
 
-  });
-})
-
-/* Desliga o Bluetooth logo que fechar o app */
-document.addEventListener("pause", onPause, false);
-function onPause() {
-  bluetoothSerial.disconnect();
-}
-
-/* Verifica conexão com o Bluetooth */
-setInterval(function(){
-  bluetoothSerial.isConnected(
-    function() {
-      $('#configuracao').removeClass('red');
-      $('#configuracao').addClass('green');
-
-      $('#bluetooth').html("bluetooth_connected");
-    },
-    function() {
-      $('#configuracao').addClass('red');
-      $('#configuracao').removeClass('green');
-
-      $('#bluetooth').html("bluetooth_disabled");
+    /* Desliga o Bluetooth logo que fechar o app */
+    document.addEventListener("pause", onPause, false);
+    function onPause() {
+      bluetoothSerial.disconnect();
     }
-  );
-}, 1000);
+
+    /* Verifica conexão com o Bluetooth */
+    setInterval(function(){
+      bluetoothSerial.isConnected(
+        function() {
+          $('#configuracao').removeClass('red');
+          $('#configuracao').addClass('green');
+
+          $('#bluetooth').html("bluetooth_connected");
+        },
+        function() {
+          $('#configuracao').addClass('red');
+          $('#configuracao').removeClass('green');
+
+          $('#bluetooth').html("bluetooth_disabled");
+        }
+      );
+    }, 1000);
