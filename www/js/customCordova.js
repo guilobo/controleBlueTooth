@@ -23,17 +23,14 @@ $('#configuracao').click(function(){
 
 /* Desliga o Bluetooth logo que fechar o app */
 document.addEventListener("pause", onPause, false);
-$('#desconecta-bt').click(function(){
-  M.toast({html: 'desconectando '})
-  bluetoothSerial.disconnect(function(){M.toast({html: 'desconectado '})},function(){M.toast({html: 'deu erro '})});
-});
-
 function onPause() {
     bluetoothSerial.disconnect();
 }
 
 /* Verifica conexão com o Bluetooth */
-bluetoothSerial.isConnected(
+
+setInterval(function(){
+  bluetoothSerial.isConnected(
     function() {
         $('#configuracao').removeClass('.red');
         $('#configuracao').addClass('.green');
@@ -47,3 +44,7 @@ bluetoothSerial.isConnected(
       $('#bluetooth').html("bluetooth_disabled");
     }
 );
+<<<<<<< HEAD
+=======
+}, 1000);
+>>>>>>> 7eee4c24bd0a1efa85aa67cff884eb181a9751be
