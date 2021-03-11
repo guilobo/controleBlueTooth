@@ -2,12 +2,13 @@ $('#abre-bluetooth').click(function(){
   bluetoothSerial.showBluetoothSettings();
 })
 
+var macConectado;
 $('#configuracao').click(function(){
   $("#tabela-bluetooth").html("");
   bluetoothSerial.list(function(devices) {
     devices.forEach(function(device) {
       $("#tabela-bluetooth").append("<tr>"+
-      "<td><span class='badge'>1</span>"+device.name+"</td>"+
+      "<td class='TdNomeDoBt'>"+device.name+"</td>"+
       "<td>"+device.id+"</td>"+
       "<td><a name='"+device.name+"' mac='"+device.id+"' class='waves-effect waves-light btn blue darken-3'>conectar</a></td>"+
       "</tr>")
@@ -38,7 +39,9 @@ $('#configuracao').click(function(){
               M.toast({html: conexao_mac});
               bluetoothSerial.connect(mac,
                 function(){
-                  $('#menu-bt').addClass('modal-close');
+                  macConectado = $(botao_clicado).attr("mac");
+                  $(botao_clicado).parent().parent().find(".TdNomeDoBt").prepend("<span class='statusConectado new badge green' data-badge-caption='Conectado'></span>   ");
+                  modalDosBT.close();
                 },
                 function(){
                   if(!desconectando){M.toast({html: 'Falha na conexão'})}
@@ -47,6 +50,8 @@ $('#configuracao').click(function(){
 
 
         });
+        $("#tabela-bluetooth").find( "a[mac='"+macConectado+"']" ).parent().parent().find(".TdNomeDoBt").prepend("<span class='statusConectado new badge green' data-badge-caption='Conectado'></span>   ");
+
       });
     });
 
@@ -69,7 +74,7 @@ $('#configuracao').click(function(){
           if (conectadoOld != conectado){
           conectadoOld = conectado;
           var text_conect = 'Conectado no dispositvo ';
-          $('#menu-bt').addClass('modal-close');
+          modalDosBT.close();
           M.toast({html: text_conect});
         }
         },
@@ -80,7 +85,7 @@ $('#configuracao').click(function(){
             var text_conect = 'Dispositvo desconectado';
             M.toast({html: text_conect});
           }
-
+          $(".statusConectado").remove();
           $('#configuracao').addClass('red');
           $('#configuracao').removeClass('green');
 
