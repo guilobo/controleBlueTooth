@@ -19,9 +19,9 @@ Draggable.create(".left .joystick", {
   },
   onDragEnd: function() {
     TweenLite.set(this.target, {x:0, y:0});
+    bluetoothSerial.write("Y0Y", function(){}, function(){});
     updateScreenText('stop');
     resetSpeedIndicators();
-    sendCommand('stop', 40);
   },
 });
 
@@ -41,35 +41,42 @@ Draggable.create(".right .joystick", {
   },
   onDragEnd: function() {
     TweenLite.set(this.target, {x:0, y:0});
+    bluetoothSerial.write("X0X", function(){}, function(){});
     updateScreenText('stop');
     resetSpeedIndicators();
-    sendCommand('stop', 40);
   },
 });
 
 function turnCar(speedIncrease) {
-  const minSpeed = 100;
+  const minSpeed = 0;
   const maxSpeed = 255;
   const speedRange = maxSpeed - minSpeed;
   const direction = getLeftRightDirection(speedIncrease);
-  const finalSpeed = 100 + (speedRange * Math.abs(speedIncrease));
+  const finalSpeed = minSpeed + (speedRange * Math.abs(speedIncrease));
   updateScreenText(direction);
   addSpeedIndicators(Math.abs(speedIncrease));
-  sendCommand(direction, finalSpeed);
+  if (direction == "right")
+  bluetoothSerial.write("X"+Math.round(finalSpeed)+"X", function(){}, function(){});
+  if (direction == "left")
+  bluetoothSerial.write("x"+Math.round(finalSpeed)+"x", function(){}, function(){});
+
+
 }
 
 function moveCar(speedIncrease) {
-  const minSpeed = 100;
+  const minSpeed = 0;
   const maxSpeed = 255;
   const speedRange = maxSpeed - minSpeed;
   const direction = getForwardsBackDirection(speedIncrease);
-  const finalSpeed = 100 + (speedRange * Math.abs(speedIncrease));
-  console.log("Y"+finalSpeed)
+  const finalSpeed = minSpeed + (speedRange * Math.abs(speedIncrease));
+  if (direction == "forwards")
+  bluetoothSerial.write("Y"+Math.round(finalSpeed)+"Y", function(){}, function(){});
+  if (direction == "backwards")
+  bluetoothSerial.write("y"+Math.round(finalSpeed)+"y", function(){}, function(){});
   console.log(finalSpeed);
   console.log(direction);
   updateScreenText(direction);
   addSpeedIndicators(Math.abs(speedIncrease));
-  sendCommand(direction, finalSpeed);
 }
 
 function getLeftRightDirection(speed) {
@@ -100,7 +107,7 @@ function updateScreenText(direction) {
   if (direction !== 'stop') {
     $('.main-text').text('Moving ' + direction);
   } else {
-    console.log('stopped');
+    //console.log('stopped');
     $('.main-text').text('Stopped');
   }
 }
@@ -126,37 +133,6 @@ function addSpeedIndicators(speedIncrease) {
 
 function resetSpeedIndicators() {
   $('.speed-indicators').empty();
-}
-
-function sendCommand(direction, speed) {
-  console.log('sendCommand');
-  console.log(direction);
-  console.log(speed);
-  var moveCommand = 'moveMotor,' + direction + ',' + speed;
-  var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://api.particle.io/v1/devices/12345/triggerFunction",
-    "method": "POST",
-    "headers": {
-      "Authorization": "..",
-      "Content-Type": "application/x-www-form-urlencoded",
-      "Accept": "*/*",
-      "Cache-Control": "no-cache",
-      "Host": "api.particle.io",
-      "accept-encoding": "gzip, deflate",
-      "content-length": "27",
-      "Connection": "keep-alive",
-      "cache-control": "no-cache"
-    },
-    "data": {
-      "args": moveCommand
-    }
-  }
-
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
 }
 
 // const onDragUpDown = function(e) {
