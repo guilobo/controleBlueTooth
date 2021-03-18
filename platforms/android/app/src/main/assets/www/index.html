@@ -7,6 +7,7 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/joyStick.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/botoes.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/custom.css"  media="screen,projection"/>
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,8 +18,8 @@
   <nav class="nav-extended" style="margin-bottom: 4vw;">
       <div class="nav-content blue">
         <ul class="tabs tabs-transparent">
-          <li class="tab"><a class="active" href="#controle1">mode 1</a></li>
-          <li class="tab"><a href="#test2">mode 2</a></li>
+          <li class="tab"><a class="" href="#controle1">mode 1</a></li>
+          <li class="tab"><a class="active" href="#controle2">mode 2</a></li>
           <li class="tab"><a href="#test3">mode 3</a></li>
           <li class="tab"><a href="#test4">mode 4</a></li>
         </ul>
@@ -100,7 +101,90 @@
   </div>
 
   <!-- ********* CONTROLE 2 ********* -->
-  <div id="test2" class="col s12">
+  <div id="controle2" class="col s12">
+    <div class="container">
+      <div class="row center linhaBotoesM2">
+        <div class="col s1">
+          <b><a id="m2-F" class="btn-floating btn waves-effect waves-light red" >F</a></b>
+        </div>
+        <div class="col s1">
+          <b><a id="m2-G" class="btn-floating btn waves-effect waves-light pink" >G</a></b>
+        </div>
+        <div class="col s2">
+          <b><a id="m2-H" class="btn-floating btn waves-effect waves-light purple" >H</a></b>
+        </div>
+        <div class="col s1">
+          <b><a id="m2-I" class="btn-floating btn waves-effect waves-light blue" >I</a></b>
+        </div>
+        <div class="col s1">
+          <b><a id="m2-J" class="btn-floating btn waves-effect waves-light teal" >J</a></b>
+        </div>
+        <div class="col s1">
+
+        </div>
+        <div class="col s1">
+              <i class="material-icons prefix white-text"style="margin-top: 7px;">speed</i>
+        </div>
+        <div class="col s4" style="margin-top: -12px;">
+
+    <form class="col s12">
+      <div class="row linhaBotoesM2">
+        <div class="input-field ">
+          <input id="m2Velocidade" type="range" id="test5" min="0" max="9" />
+        </div>
+      </div>
+    </form>
+
+
+        </div>
+      </div>
+      <div class="row center linhaBotoesM2">
+        <div class="col s6">
+          <table>
+            <tr>
+              <a  class="waves-effect waves-light" href="#">
+              <td id="m2-cima"style="text-align: -webkit-center;">
+                  <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                    <i class="material-icons">keyboard_arrow_up</i>
+                  </a>
+              </td>
+            </a>
+            </tr>
+            <tr>
+              <a  class="waves-effect waves-light" href="#">
+              <td id="m2-baixo"style="text-align: -webkit-center;">
+                  <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                  </a>
+              </td>
+              </a>
+            </tr>
+          </table>
+
+        </div>
+        <div class="col s6">
+          <table>
+            <tr>
+              <a  class="waves-effect waves-light black" href="#">
+              <td id="m2-esquerda"style="height: 28vw; ">
+                 <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                   <i class="material-icons">keyboard_arrow_left</i>
+                 </a>
+              </td>
+              </a>
+              <a  class="waves-effect waves-light black" href="#">
+              <td id="m2-direita"style="height: 28vw;">
+                 <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                   <i class="material-icons">keyboard_arrow_right</i>
+                 </a>
+              </td>
+              </a>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ********* CONTROLE 3 ********* -->
