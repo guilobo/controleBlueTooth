@@ -1,97 +1,232 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <link type="text/css" rel="stylesheet" href="css/joyStick.css"  media="screen,projection"/>
-  <link type="text/css" rel="stylesheet" href="css/botoes.css"  media="screen,projection"/>
 
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-</head>
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/joyStick.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/botoes.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/custom.css"  media="screen,projection"/>
 
-<body>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      </head>
 
-  <nav class="nav-extended" style="margin-bottom: 4vw;">
-      <div class="nav-content blue">
-        <ul class="tabs tabs-transparent">
-          <li class="tab"><a class="active" href="#controle1">mode 1</a></li>
-          <li class="tab"><a href="#test2">mode 2</a></li>
-          <li class="tab"><a href="#test3">mode 3</a></li>
-          <li class="tab"><a href="#test4">mode 4</a></li>
+      <body>
+
+        <nav class="nav-extended" style="margin-bottom: 4vw;">
+            <div class="nav-content blue">
+              <ul class="tabs tabs-transparent">
+                <li class="tab"><a class="active" href="#controle1">mode 1</a></li>
+                <li class="tab"><a href="#controle2">mode 2</a></li>
+                <li class="tab"><a href="#test3">mode 3</a></li>
+                <li class="tab"><a href="#test4">mode 4</a></li>
+              </ul>
+            </div>
+          </nav>
+
+          <!-- Botão de configurações -->
+          <div class="fixed-action-btn">
+          <a id="configuracao" class="btn-floating btn-large red">
+            <i id="bluetooth" class="large material-icons">bluetooth_disabled</i>
+          </a>
+          <ul>
+            <!-- Infos da empresa -->
+            <li><a href="#menu-infos" class="modal-trigger btn-floating yellow darken-1"><i class="material-icons">priority_high</i></a></li>
+            <!-- Descrição do app -->
+            <li><a href="#menu-descricao" class="modal-trigger btn-floating green"><i class="material-icons">subject</i></a></li>
+            <!-- Conexão bluetooth -->
+            <li><a id="configuracoes-bt" href="#menu-bt" class="modal-trigger btn-floating blue"><i class="material-icons">bluetooth</i></a></li>
+          </ul>
+        </div>
+
+          <!-- ********* CONTROLE 1 ********* -->
+          <div id="controle1" class="col s12">
+            <div class="container">
+
+              <!-- Botões de cima -->
+              <div class="row">
+                <div class="col s3 center">
+                  <a id="m1-seta-esquerda"class="btn-large botao waves-effect waves-light btn-floating orange "><i class="material-icons botao">keyboard_arrow_left</i></a>
+                </div>
+                <div class="col s2 center">
+                  <a id="m1-A" class="btn-large botao waves-effect waves-light btn-floating light-green">A</a>
+                </div>
+                <div class="col s2 center">
+                  <a id="m1-B" class="btn-large botao waves-effect waves-light btn-floating deep-purple ">B</a>
+                </div>
+                <div class="col s2 center">
+                  <a id="m1-C" class="btn-large botao waves-effect waves-light btn-floating brown ">C</a>
+                </div>
+                <div class="col s3 center">
+                  <a id="m1-seta-direita" class="btn-large botao waves-effect waves-light btn-floating orange "><i class="material-icons botao">keyboard_arrow_right</i></a>
+                </div>
+              </div>
+
+              <!-- Botões de baixo -->
+              <div class="row">
+                <!-- Botão da esquerda -->
+                <div class="col s4 ">
+
+              <div class="left joystick-area left-align">
+                <div class="movement-channel">
+                  <div class="joystick left-align">
+                    <div class="joystick-inner left-align"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Botões do meio -->
+            <div class="col s4 center">
+              <div class="row" style="margin-top: 4vw;">
+                <a id="m1-D" class="btn-large botao waves-effect waves-light btn-floating red darken-1">D</a>
+              </div>
+              <div class="row">
+                <a id="m1-E" class="btn-large  botao waves-effect waves-light btn-floating blue darken-3">E</a>
+              </div>
+            </div>
+            <!-- Botão da direita -->
+            <div class="col s4">
+              <div class="right joystick-area">
+                <div class="movement-channel">
+                  <div class="joystick">
+                    <div class="joystick-inner"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </div>
+
+        <!-- ********* CONTROLE 3 ********* -->
+        <div id="test3" class="col s12">
+        </div>
+
+        <!-- ********* CONTROLE 4 ********* -->
+        <div id="test4" class="col s12">
+        </div>
+
+        <!-- ********* CONFIGURAÇÕES ********* -->
+        <div id="menu-bt" class="configMenu modal">
+          <div  class="modal-content">
+            <a id="abre-bluetooth" class="waves-effect waves-light btn blue darken-3">Adicionar novo Bluetooth</a>
+            <div id="contedudo-do-modal">
+              <table>
+              <thead>
+                <tr>
+                    <th></span>Nome</th>
+                    <th>mac</th>
+                    <th>Conexão</th>
+                </tr>
+              </thead>
+
+              <tbody id="tabela-bluetooth">
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="menu-descricao" class="configMenu modal">
+          <h2 class="center">Descrição <a id="#versao-app"></a></h2>
+            <ul class="collapsible popout">
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">bluetooth</i>Bluetooth</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Botão bluetooth na cor vermelha indica que o bluetooth não está conectado</li><br>
+                <li>● Botão bluetooth na cor verde indica bluetooth conectado</li><br>
+                <li>● O botão de bluetooth (botão azul do menu) abre as configurações do bluetooth, onde você poderá ligar o bluetooth do seu dispositivo (se não estiver ligado) e conectar a um dos dispositivos listados</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">subject</i>Botão lista</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Neste botão você encontrará as informações sobre o App e links para acessar códigos de exemplo</li><br>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">priority_high</i>Botão de informações</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Neste menu estão as informações sobre a possibilidade de você criar a sua própria versão do App</li><br>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">videogame_asset</i>Controle Modelo 1</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Cada botão envia uma letra maiúscula e minúscula, exceto as setas</li><br>
+                <li>● O joystick da esquerda envia “Y” para frente e “y” para trás</li><br>
+                <li>● O joystick da direita envia “X” para direita e “x” para esquerda</li><br>
+                <li>● Ambos joysticks enviam de 0 a 255 para cada direção</li><br>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">videogame_asset</i>Controle Modelo 2</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Neste menu estão as informações sobre a empresa desenvolvedora e versão do App</li><br>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">videogame_asset</i>Controle Modelo 3</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Neste menu estão as informações sobre a empresa desenvolvedora e versão do App</li><br>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">videogame_asset</i>Controle Modelo 4</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Neste menu estão as informações sobre a empresa desenvolvedora e versão do App</li><br>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header grey lighten-2"><i class="material-icons">link</i>Links</div>
+            <div class="collapsible-body grey lighten-4">
+              <ul>
+                <li>● Cada botão envia uma letra maiúscula e minúscula, exceto as setas</li><br>
+                <li>● O joystick da esquerda envia “Y” para frente e “y” para trás</li><br>
+                <li>● O joystick da direita envia “X” para direita e “x” para esquerda</li><br>
+                <li>● Ambos joysticks enviam de 0 a 255 para cada direção</li><br>
+              </ul>
+            </div>
+          </li>
         </ul>
-      </div>
-    </nav>
-
-    <!-- Botão de configurações -->
-    <div class="fixed-action-btn">
-    <a id="configuracao" class="btn-floating btn-large red">
-      <i id="bluetooth" class="large material-icons">bluetooth_disabled</i>
-    </a>
-    <ul>
-      <!-- Infos da empresa -->
-      <li><a href="#menu-infos" class="modal-trigger btn-floating yellow darken-1"><i class="material-icons">priority_high</i></a></li>
-      <!-- Descrição do app -->
-      <li><a href="#menu-descricao" class="modal-trigger btn-floating green"><i class="material-icons">subject</i></a></li>
-      <!-- Conexão bluetooth -->
-      <li><a id="configuracoes-bt" href="#menu-bt" class="modal-trigger btn-floating blue"><i class="material-icons">bluetooth</i></a></li>
-    </ul>
-  </div>
-
-    <!-- ********* CONTROLE 1 ********* -->
-    <div id="controle1" class="col s12">
-      <div class="container">
-
-        <!-- Botões de cima -->
-        <div class="row">
-          <div class="col s3 center">
-            <a id="m1-seta-esquerda"class="btn-large botao waves-effect waves-light btn-floating orange "><i class="material-icons botao">keyboard_arrow_left</i></a>
-          </div>
-          <div class="col s2 center">
-            <a id="m1-A" class="btn-large botao waves-effect waves-light btn-floating light-green">A</a>
-          </div>
-          <div class="col s2 center">
-            <a id="m1-B" class="btn-large botao waves-effect waves-light btn-floating deep-purple ">B</a>
-          </div>
-          <div class="col s2 center">
-            <a id="m1-C" class="btn-large botao waves-effect waves-light btn-floating brown ">C</a>
-          </div>
-          <div class="col s3 center">
-            <a id="m1-seta-direita" class="btn-large botao waves-effect waves-light btn-floating orange "><i class="material-icons botao">keyboard_arrow_right</i></a>
-          </div>
         </div>
 
-        <!-- Botões de baixo -->
-        <div class="row">
-          <!-- Botão da esquerda -->
-          <div class="col s4 ">
+        <div id="menu-infos" class="configMenu modal">
+          <div class="">
+          <div class="card">
+            <div class="card-image">
+              <img src="img/img-bt.png">
+              <span id="titulo-card" class="card-title">Personalize o seu App</span>
+            </div>
+            <div class="card-content">
+              <p id="texto-card">Obtenha o seu próprio aplicativo, personalizado, sem propagandas e postado na Play Store, saiba como tirando suas dúvidas conosco, <a href="#">acesse aqui!</a></p>
+            </div>
+            <div class="card-action">
+              <div class="center">
+                <img id="logo-indoortech" href="https://indoortech.com.br/" src="img/logo-indoortech.png" alt="logo-indoortech">
+                <p>Desenvolvido por <a href="https://indoortech.com.br/">Indoor Tech</a></p>
 
-        <div class="left joystick-area left-align">
-          <div class="movement-channel">
-            <div class="joystick left-align">
-              <div class="joystick-inner left-align"></div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Botões do meio -->
-      <div class="col s4 center">
-        <div class="row" style="margin-top: 4vw;">
-          <a id="m1-D" class="btn-large botao waves-effect waves-light btn-floating red darken-1">D</a>
-        </div>
-        <div class="row">
-          <a id="m1-E" class="btn-large  botao waves-effect waves-light btn-floating blue darken-3">E</a>
-        </div>
-      </div>
-      <!-- Botão da direita -->
-      <div class="col s4">
-        <div class="right joystick-area">
-          <div class="movement-channel">
-            <div class="joystick">
-              <div class="joystick-inner"></div>
-            </div>
           </div>
         </div>
       </div>
@@ -100,7 +235,90 @@
   </div>
 
   <!-- ********* CONTROLE 2 ********* -->
-  <div id="test2" class="col s12">
+  <div id="controle2" class="col s12">
+    <div class="container">
+      <div class="row center linhaBotoesM2">
+        <div class="col s1">
+          <b><a id="m2-F" class="btn-floating btn waves-effect waves-light red" >F</a></b>
+        </div>
+        <div class="col s1">
+          <b><a id="m2-G" class="btn-floating btn waves-effect waves-light pink" >G</a></b>
+        </div>
+        <div class="col s2">
+          <b><a id="m2-H" class="btn-floating btn waves-effect waves-light purple" >H</a></b>
+        </div>
+        <div class="col s1">
+          <b><a id="m2-I" class="btn-floating btn waves-effect waves-light blue" >I</a></b>
+        </div>
+        <div class="col s1">
+          <b><a id="m2-J" class="btn-floating btn waves-effect waves-light teal" >J</a></b>
+        </div>
+        <div class="col s1">
+
+        </div>
+        <div class="col s1">
+              <i class="material-icons prefix white-text"style="margin-top: 7px;">speed</i>
+        </div>
+        <div class="col s4" style="margin-top: -12px;">
+
+    <form class="col s12">
+      <div class="row linhaBotoesM2">
+        <div class="input-field ">
+          <input id="m2Velocidade" type="range" id="test5" min="0" max="9" />
+        </div>
+      </div>
+    </form>
+
+
+        </div>
+      </div>
+      <div class="row center linhaBotoesM2">
+        <div class="col s6">
+          <table>
+            <tr>
+              <a  class="waves-effect waves-light" href="#">
+              <td id="m2-cima"style="text-align: -webkit-center;">
+                  <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                    <i class="material-icons">keyboard_arrow_up</i>
+                  </a>
+              </td>
+            </a>
+            </tr>
+            <tr>
+              <a  class="waves-effect waves-light" href="#">
+              <td id="m2-baixo"style="text-align: -webkit-center;">
+                  <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                  </a>
+              </td>
+              </a>
+            </tr>
+          </table>
+
+        </div>
+        <div class="col s6">
+          <table>
+            <tr>
+              <a  class="waves-effect waves-light black" href="#">
+              <td id="m2-esquerda"style="height: 28vw; ">
+                 <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                   <i class="material-icons">keyboard_arrow_left</i>
+                 </a>
+              </td>
+              </a>
+              <a  class="waves-effect waves-light black" href="#">
+              <td id="m2-direita"style="height: 28vw;">
+                 <a class="m2BotaoSetas btn-large waves-effect waves-light grey darken-4">
+                   <i class="material-icons">keyboard_arrow_right</i>
+                 </a>
+              </td>
+              </a>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ********* CONTROLE 3 ********* -->

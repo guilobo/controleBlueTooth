@@ -1,0 +1,32 @@
+
+.direcionais {
+    width: 15vw;
+    height: 15vw;
+}
+
+table, tr, td {
+  border: none;
+}
+
+.m2BotaoSetas{
+  width: 100%;
+  height: 100%;
+  min-height: 10vw;
+}
+
+.linhaBotoesM2{
+  margin-bottom: -0px !important;
+  
+#logo-indoortech{
+  width: 35%;
+}
+
+#titulo-card{
+  color: black;
+  font-size: 34px;
+  font-weight: 600;
+}
+
+#texto-card{
+  font-size: 20px;
+}
