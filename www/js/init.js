@@ -4,3 +4,5 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 }
+
+$("#terminal").attr("style", "height:"+(screen.height-160)+"px");
