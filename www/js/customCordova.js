@@ -71,6 +71,7 @@ $('#configuracao').click(function(){
     var conectadoOld = false;
     var conectado = false;
     setInterval(function(){
+
       bluetoothSerial.isConnected(
         function() {
           conectado = true;
@@ -98,4 +99,8 @@ $('#configuracao').click(function(){
           $('#bluetooth').html("bluetooth_disabled");
         }
       );
+
+
+
+
     }, 1000);
