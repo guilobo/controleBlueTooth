@@ -165,9 +165,9 @@ $('#m3-colchetes').change(function(){
 });
 $('#m3-chaves').change(function(){
   if ($("#m3-chaves:checked").length)
-  bluetoothSerial.write('{', function(){}, function(){});
-  else
   bluetoothSerial.write('}', function(){}, function(){});
+  else
+  bluetoothSerial.write('{', function(){}, function(){});
 });
 $('#m3-doisPontos').change(function(){
   if ($("#m3-doisPontos:checked").length)
@@ -182,19 +182,19 @@ $('#m3-K').change(function(){
   bluetoothSerial.write('k', function(){}, function(){});
 });
 $('#m3-L').change(function(){
-  if ($("#m3-:checked").length)
+  if ($("#m3-L:checked").length)
   bluetoothSerial.write('L', function(){}, function(){});
   else
   bluetoothSerial.write('l', function(){}, function(){});
 });
 $('#m3-M').change(function(){
-  if ($("#m3-:checked").length)
+  if ($("#m3-M:checked").length)
   bluetoothSerial.write('M', function(){}, function(){});
   else
   bluetoothSerial.write('m', function(){}, function(){});
 });
 $('#m3-N').change(function(){
-  if ($("#m3-:checked").length)
+  if ($("#m3-N:checked").length)
   bluetoothSerial.write('N', function(){}, function(){});
   else
   bluetoothSerial.write('n', function(){}, function(){});

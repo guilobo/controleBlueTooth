@@ -12,6 +12,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "br.com.indoortech.controleBluetooth"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "br.com.indoortech.controleBluetooth"
     }
   },
   "dependent_plugins": {

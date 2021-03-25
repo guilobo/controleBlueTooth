@@ -15,11 +15,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "runs": true
     },
     {
-      "id": "cordova-plugin-android-permissions.Permissions",
-      "file": "plugins/cordova-plugin-android-permissions/www/permissions.js",
-      "pluginId": "cordova-plugin-android-permissions",
+      "id": "cordova-sqlite-storage.SQLitePlugin",
+      "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+      "pluginId": "cordova-sqlite-storage",
       "clobbers": [
-        "cordova.plugins.permissions"
+        "SQLitePlugin"
       ]
     }
   ];
@@ -27,6 +27,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-bluetooth-serial": "0.4.7",
     "cordova-plugin-whitelist": "1.3.4",
     "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-android-permissions": "1.1.2"
+    "cordova-sqlite-storage": "6.0.0"
   };
 });

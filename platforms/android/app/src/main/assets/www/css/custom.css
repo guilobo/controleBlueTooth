@@ -18,6 +18,11 @@ table, tr, td {
   margin-bottom: -0px !important;
 }
 
+.botao{
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #logo-indoortech{
   width: 35%;
 }
@@ -51,4 +56,25 @@ textarea {
 
 #terminal, #campo-enviar{
   color: white;
+}
+
+#joystick-esquerda{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background-color: transparent;
+  z-index: 5;
+}
+
+#joystick-direita{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background-color: transparent;
+  z-index: 5;
+}
+
+.alignJoystick{
+  margin-left: 40%;
+  margin-top: 60px;
 }
