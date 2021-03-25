@@ -16,7 +16,8 @@ table, tr, td {
 
 .linhaBotoesM2{
   margin-bottom: -0px !important;
-  
+}
+
 #logo-indoortech{
   width: 35%;
 }
@@ -29,4 +30,25 @@ table, tr, td {
 
 #texto-card{
   font-size: 20px;
+}
+
+.margemBotoesMenu{
+  margin-top: 4vw;
+}
+
+.page-footer{
+  padding-top: 0px !important;
+  position: fixed;
+  bottom: 0;
+  width:100%;
+}
+
+textarea {
+  resize:none;
+  height: 200px;
+  bottom: 0;
+}
+
+#terminal, #campo-enviar{
+  color: white;
 }
