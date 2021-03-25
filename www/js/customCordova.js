@@ -55,10 +55,15 @@ $('#configuracao').click(function(){
       });
     });
 
-    /* Desliga o Bluetooth logo que fechar o app */
+/* Desliga o Bluetooth logo que fechar o app */
     document.addEventListener("pause", onPause, false);
     function onPause() {
       bluetoothSerial.disconnect();
+
+      // Salva o controle
+      var fid = $("#tab-principal").find("a.active").attr("href");
+      var tab = fid.substring(1, fid.length);
+      AtualizaAUltimaAba(tab);
     }
 
     /* Verifica conexão com o Bluetooth */
