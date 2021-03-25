@@ -94,27 +94,112 @@ $('#m2-J').click(function(){
   else
   bluetoothSerial.write('j', function(){}, function(){});
 });
+$('#m3-O').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('O', function(){}, function(){});
+  else
+  bluetoothSerial.write('o', function(){}, function(){});
+});
+$('#m3-P').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('P', function(){}, function(){});
+  else
+  bluetoothSerial.write('p', function(){}, function(){});
+});
+$('#m3-Q').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('Q', function(){}, function(){});
+  else
+  bluetoothSerial.write('q', function(){}, function(){});
+});
+$('#m3-R').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('R', function(){}, function(){});
+  else
+  bluetoothSerial.write('r', function(){}, function(){});
+});
+$('#m3-S').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('S', function(){}, function(){});
+  else
+  bluetoothSerial.write('s', function(){}, function(){});
+});
+$('#m3-T').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('T', function(){}, function(){});
+  else
+  bluetoothSerial.write('t', function(){}, function(){});
+});
+$('#m3-U').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('U', function(){}, function(){});
+  else
+  bluetoothSerial.write('u', function(){}, function(){});
+});
+$('#m3-V').click(function(){
+  var estadoCaixaAtual = CaixaCaracterBotao(this);
+  if (estadoCaixaAtual == 'l')
+  bluetoothSerial.write('V', function(){}, function(){});
+  else
+  bluetoothSerial.write('v', function(){}, function(){});
+});
 
-$('#m2-baixo').on("touchstart",function(){
-  bluetoothSerial.write('-', function(){}, function(){});
-}).on("touchend",function(){
-  bluetoothSerial.write('.', function(){}, function(){});
+$('#m3-parenteses').change(function(){
+  if ($("#m3-parenteses:checked").length)
+  bluetoothSerial.write(')', function(){}, function(){});
+  else
+  bluetoothSerial.write('(', function(){}, function(){});
 });
-$('#m2-cima').on("touchstart",function(){
-  bluetoothSerial.write('+', function(){}, function(){});
-}).on("touchend",function(){
-  bluetoothSerial.write('.', function(){}, function(){});
+$('#m3-colchetes').change(function(){
+  if ($("#m3-colchetes:checked").length)
+  bluetoothSerial.write(']', function(){}, function(){});
+  else
+  bluetoothSerial.write('[', function(){}, function(){});
 });
-$('#m2-esquerda').on("touchstart",function(){
-  bluetoothSerial.write('/', function(){}, function(){});
-}).on("touchend",function(){
-  bluetoothSerial.write('=', function(){}, function(){});
+$('#m3-chaves').change(function(){
+  if ($("#m3-chaves:checked").length)
+  bluetoothSerial.write('{', function(){}, function(){});
+  else
+  bluetoothSerial.write('}', function(){}, function(){});
 });
-$('#m2-direita').on("touchstart",function(){
-  bluetoothSerial.write('*', function(){}, function(){});
-}).on("touchend",function(){
-  bluetoothSerial.write('=', function(){}, function(){});
+$('#m3-doisPontos').change(function(){
+  if ($("#m3-doisPontos:checked").length)
+  bluetoothSerial.write(';', function(){}, function(){});
+  else
+  bluetoothSerial.write(':', function(){}, function(){});
 });
+$('#m3-K').change(function(){
+  if ($("#m3-K:checked").length)
+  bluetoothSerial.write('K', function(){}, function(){});
+  else
+  bluetoothSerial.write('k', function(){}, function(){});
+});
+$('#m3-L').change(function(){
+  if ($("#m3-:checked").length)
+  bluetoothSerial.write('L', function(){}, function(){});
+  else
+  bluetoothSerial.write('l', function(){}, function(){});
+});
+$('#m3-M').change(function(){
+  if ($("#m3-:checked").length)
+  bluetoothSerial.write('M', function(){}, function(){});
+  else
+  bluetoothSerial.write('m', function(){}, function(){});
+});
+$('#m3-N').change(function(){
+  if ($("#m3-:checked").length)
+  bluetoothSerial.write('N', function(){}, function(){});
+  else
+  bluetoothSerial.write('n', function(){}, function(){});
+});
+
 
 $("#m2Velocidade").change(function(){
   var valorVelocidade = $(this).val();
