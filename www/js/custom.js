@@ -220,6 +220,7 @@ $("#botaoMenuConfig").click(function(){
   }else {
     clicksNoBtConf++;
   }
+})
 
   //Console do controle4
   $("#botao-enviar").click(function(){
