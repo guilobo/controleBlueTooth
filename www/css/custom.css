@@ -52,3 +52,24 @@ textarea {
 #terminal, #campo-enviar{
   color: white;
 }
+
+#joystick-esquerda{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background-color: transparent;
+  z-index: 5;
+}
+
+#joystick-direita{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  background-color: transparent;
+  z-index: 5;
+}
+
+.alignJoystick{
+  margin-left: 40%;
+  margin-top: 60px;
+}
