@@ -55,6 +55,7 @@ $('#configuracao').click(function(){
       });
     });
 
+
 /* Desliga o Bluetooth logo que fechar o app */
     document.addEventListener("pause", onPause, false);
     function onPause() {
