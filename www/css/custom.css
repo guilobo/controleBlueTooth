@@ -18,6 +18,11 @@ table, tr, td {
   margin-bottom: -0px !important;
 }
 
+.botao{
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #logo-indoortech{
   width: 35%;
 }
