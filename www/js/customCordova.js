@@ -42,6 +42,9 @@ $('#configuracao').click(function(){
                   macConectado = $(botao_clicado).attr("mac");
                   $(botao_clicado).parent().parent().find(".TdNomeDoBt").prepend("<span class='statusConectado new badge green' data-badge-caption='Conectado'></span>   ");
                   modalDosBT.close();
+
+                  //Atualiza tabela do banco de dados pro dispositivo conectado
+                  AtualizaOUltimoDispositivo(name, mac);
                 },
                 function(){
                   if(!desconectando){M.toast({html: 'Falha na conexão'})}
@@ -52,8 +55,10 @@ $('#configuracao').click(function(){
         });
         $("#tabela-bluetooth").find( "a[mac='"+macConectado+"']" ).parent().parent().find(".TdNomeDoBt").prepend("<span class='statusConectado new badge green' data-badge-caption='Conectado'></span>   ");
 
+
       });
     });
+
 
 /* Desliga o Bluetooth logo que fechar o app */
     document.addEventListener("pause", onPause, false);
