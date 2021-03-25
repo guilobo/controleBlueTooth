@@ -206,6 +206,7 @@ $("#m2Velocidade").change(function(){
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
 })
 
+<<<<<<< HEAD
 
 //Console do controle4
 $("#botao-enviar").click(function(){
@@ -224,4 +225,21 @@ $("#botao-enviar").click(function(){
 //limpa console
 $("#limpar-terminal").click(function(){
   $("#terminal").val('');
+=======
+var clicksNoBtConf = 0;
+$("#botaoMenuConfig").click(function(){
+  if (clicksNoBtConf > 0 && ultimoDispositivo != '0'){
+    var conexao_mac = 'Tentando conectar no : '+ ultimoDispositivo;
+    M.toast({html: conexao_mac});
+    bluetoothSerial.connect(ultimoDispositovoMac,
+      function(){
+      },
+      function(){
+        if(!desconectando){M.toast({html: 'Falha na conexão'})}
+      });
+  }else {
+    clicksNoBtConf++;
+  }
+
+>>>>>>> 3c939e4ee8142c8d2e5fc3921cc55e8a93e6c7cb
 })

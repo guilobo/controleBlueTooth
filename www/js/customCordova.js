@@ -75,6 +75,11 @@ $('#configuracao').click(function(){
     var conectadoOld = false;
     var conectado = false;
     setInterval(function(){
+        if (!actionButtom.isOpen){
+        clicksNoBtConf = 0;
+        
+        }else
+        $("#bluetooth").text("published_with_changes");
 
       bluetoothSerial.isConnected(
         function() {
