@@ -206,26 +206,6 @@ $("#m2Velocidade").change(function(){
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
 })
 
-<<<<<<< HEAD
-
-//Console do controle4
-$("#botao-enviar").click(function(){
-  var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
-  $("#terminal").append(textoEnvia);
-
-  //Scroll automático
-  var textarea = document.getElementById('terminal');
-  textarea.scrollTop = textarea.scrollHeight;
-
-  //limpa campo de enviar mensagem
-  $("#campo-enviar").val('');
-
-})
-
-//limpa console
-$("#limpar-terminal").click(function(){
-  $("#terminal").val('');
-=======
 var clicksNoBtConf = 0;
 $("#botaoMenuConfig").click(function(){
   if (clicksNoBtConf > 0 && ultimoDispositivo != '0'){
@@ -241,5 +221,21 @@ $("#botaoMenuConfig").click(function(){
     clicksNoBtConf++;
   }
 
->>>>>>> 3c939e4ee8142c8d2e5fc3921cc55e8a93e6c7cb
+  //Console do controle4
+  $("#botao-enviar").click(function(){
+    var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
+    $("#terminal").append(textoEnvia);
+
+    //Scroll automático
+    var textarea = document.getElementById('terminal');
+    textarea.scrollTop = textarea.scrollHeight;
+
+    //limpa campo de enviar mensagem
+    $("#campo-enviar").val('');
+
+  })
+
+  //limpa console
+  $("#limpar-terminal").click(function(){
+    $("#terminal").val('');
 })
