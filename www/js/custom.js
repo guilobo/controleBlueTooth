@@ -205,3 +205,23 @@ $("#m2Velocidade").change(function(){
   var valorVelocidade = $(this).val();
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
 })
+
+
+//Console do controle4
+$("#botao-enviar").click(function(){
+  var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
+  $("#terminal").append(textoEnvia);
+
+  //Scroll automático
+  var textarea = document.getElementById('terminal');
+  textarea.scrollTop = textarea.scrollHeight;
+
+  //limpa campo de enviar mensagem
+  $("#campo-enviar").val('');
+
+})
+
+//limpa console
+$("#limpar-terminal").click(function(){
+  $("#terminal").val('');
+})
