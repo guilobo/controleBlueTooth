@@ -35,6 +35,7 @@ $('#configuracao').click(function(){
             M.toast({html: text_desconect});
             bluetoothSerial.disconnect(M.toast({html: 'Dispositivo desconectado' },function(){}));
           }
+
               var conexao_mac = 'Tentando conectar no mac: '+ mac;
               M.toast({html: conexao_mac});
               bluetoothSerial.connect(mac,
@@ -77,7 +78,7 @@ $('#configuracao').click(function(){
     setInterval(function(){
         if (!actionButtom.isOpen){
         clicksNoBtConf = 0;
-        
+
         }else
         $("#bluetooth").text("published_with_changes");
 

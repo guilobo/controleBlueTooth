@@ -18,17 +18,17 @@
 
         <nav class="nav-extended">
             <div class="nav-content blue">
-              <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="#controle1">mode 1</a></li>
-                <li class="tab"><a href="#controle2">mode 2</a></li>
-                <li class="tab"><a class="active" href="#controle3">mode 3</a></li>
-                <li class="tab"><a click="myFunction" href="#controle4">mode 4</a></li>
+              <ul id="tab-principal" class="tabs tabs-transparent">
+                <li class="tab"><a id="controle1Tab" href="#controle1">mode 1</a></li>
+                <li class="tab"><a id="controle2Tab" href="#controle2">mode 2</a></li>
+                <li class="tab"><a id="controle3Tab" href="#controle3">mode 3</a></li>
+                <li class="tab"><a id="controle4Tab" href="#controle4">mode 4</a></li>
               </ul>
             </div>
           </nav>
 
           <!-- Botão de configurações -->
-          <div class="fixed-action-btn">
+          <div id="botaoMenuConfig" class="fixed-action-btn">
           <a id="configuracao" class="btn-floating btn-large red">
             <i id="bluetooth" class="large material-icons">bluetooth_disabled</i>
           </a>
@@ -453,16 +453,16 @@
 
   <!--JavaScript at end of body for optimized loading-->
   <script src="cordova.js"></script>
-  <script src="js/index.js"></script>
+  <!--script src="js/index.js"></script-->
   <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/TweenLite.min.js"></script>
   <script type="text/javascript" src="js/Draggable.min.js"></script>
   <script type="text/javascript" src="js/CSSPlugin.min.js"></script>
+  <script type="text/javascript" src="js/sqlite.js"></script>
   <script type="text/javascript" src="js/joyStick.js"></script>
   <script type="text/javascript" src="js/init.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
   <script type="text/javascript" src="js/customCordova.js"></script>
-  <script type="text/javascript" src="js/sqlite.js"></script>
 </body>
 </html>

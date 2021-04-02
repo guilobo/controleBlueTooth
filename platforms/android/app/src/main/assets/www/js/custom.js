@@ -205,3 +205,20 @@ $("#m2Velocidade").change(function(){
   var valorVelocidade = $(this).val();
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
 })
+
+var clicksNoBtConf = 0;
+$("#botaoMenuConfig").click(function(){
+  if (clicksNoBtConf > 0 && ultimoDispositivo != '0'){
+    var conexao_mac = 'Tentando conectar no : '+ ultimoDispositivo;
+    M.toast({html: conexao_mac});
+    bluetoothSerial.connect(ultimoDispositovoMac,
+      function(){
+      },
+      function(){
+        if(!desconectando){M.toast({html: 'Falha na conexão'})}
+      });
+  }else {
+    clicksNoBtConf++;
+  }
+
+})

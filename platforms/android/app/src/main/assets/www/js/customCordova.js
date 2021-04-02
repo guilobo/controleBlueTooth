@@ -35,6 +35,7 @@ $('#configuracao').click(function(){
             M.toast({html: text_desconect});
             bluetoothSerial.disconnect(M.toast({html: 'Dispositivo desconectado' },function(){}));
           }
+
               var conexao_mac = 'Tentando conectar no mac: '+ mac;
               M.toast({html: conexao_mac});
               bluetoothSerial.connect(mac,
@@ -42,6 +43,9 @@ $('#configuracao').click(function(){
                   macConectado = $(botao_clicado).attr("mac");
                   $(botao_clicado).parent().parent().find(".TdNomeDoBt").prepend("<span class='statusConectado new badge green' data-badge-caption='Conectado'></span>   ");
                   modalDosBT.close();
+
+                  //Atualiza tabela do banco de dados pro dispositivo conectado
+                  AtualizaOUltimoDispositivo(name, mac);
                 },
                 function(){
                   if(!desconectando){M.toast({html: 'Falha na conexão'})}
@@ -52,19 +56,32 @@ $('#configuracao').click(function(){
         });
         $("#tabela-bluetooth").find( "a[mac='"+macConectado+"']" ).parent().parent().find(".TdNomeDoBt").prepend("<span class='statusConectado new badge green' data-badge-caption='Conectado'></span>   ");
 
+
       });
     });
 
-    /* Desliga o Bluetooth logo que fechar o app */
+
+/* Desliga o Bluetooth logo que fechar o app */
     document.addEventListener("pause", onPause, false);
     function onPause() {
       bluetoothSerial.disconnect();
+
+      // Salva o controle
+      var fid = $("#tab-principal").find("a.active").attr("href");
+      var tab = fid.substring(1, fid.length);
+      AtualizaAUltimaAba(tab);
     }
 
     /* Verifica conexão com o Bluetooth */
     var conectadoOld = false;
     var conectado = false;
     setInterval(function(){
+        if (!actionButtom.isOpen){
+        clicksNoBtConf = 0;
+
+        }else
+        $("#bluetooth").text("published_with_changes");
+
       bluetoothSerial.isConnected(
         function() {
           conectado = true;
@@ -92,4 +109,8 @@ $('#configuracao').click(function(){
           $('#bluetooth').html("bluetooth_disabled");
         }
       );
+
+
+
+
     }, 1000);
