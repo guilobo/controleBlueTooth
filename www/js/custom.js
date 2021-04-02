@@ -18,10 +18,13 @@ function CaixaCaracterBotao(botao){
 
 $('#m1-A').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('A', function(){}, function(){});
-  else
+  enviarDisplay('A');
+ }else{
   bluetoothSerial.write('a', function(){}, function(){});
+  enviarDisplay('a');
+  }
 });
 $('#m1-B').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
@@ -222,13 +225,14 @@ $("#reconectar-bt").click(function(){
   }
 });
 
-function enviarDisplay(){
+function enviarDisplay(dadoEnviado){
+   dadoEnviado = (typeof dadoEnviado !== 'undefined') ? dadoEnviado : $("#campo-enviar").val();
   var currentdate = new Date();
   var time =  currentdate.getHours() + ":"
               + currentdate.getMinutes() + ":"
               + currentdate.getSeconds();
 
-  var textoEnvia = $.parseHTML(time + " -> " + $("#campo-enviar").val() + "\n");
+  var textoEnvia = $.parseHTML(time + " -> " + dadoEnviado + "\n");
   $("#terminal").prepend(textoEnvia);
 
   //Scroll automático
