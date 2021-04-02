@@ -235,6 +235,9 @@ function enviarDisplay(){
   var textarea = document.getElementById('terminal');
   //textarea.scrollTop = textarea.scrollHeight;
 
+  //Enviar os dados pela serial
+  bluetoothSerial.write($("#campo-enviar").val(), function(){}, function(){});
+
   //limpa campo de enviar mensagem
   $("#campo-enviar").val('');
 }
