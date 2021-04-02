@@ -206,22 +206,6 @@ $("#m2Velocidade").change(function(){
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
 })
 
-var clicksNoBtConf = 0;
-$("#botaoMenuConfig").click(function(){
-  if (clicksNoBtConf > 0 && ultimoDispositivo != '0'){
-    var conexao_mac = 'Tentando conectar no : '+ ultimoDispositivo;
-    M.toast({html: conexao_mac});
-    bluetoothSerial.connect(ultimoDispositovoMac,
-      function(){
-      },
-      function(){
-        if(!desconectando){M.toast({html: 'Falha na conexão'})}
-      });
-  }else {
-    clicksNoBtConf++;
-  }
-})
-
 
 function enviarDisplay(){
   var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
@@ -249,4 +233,19 @@ $('#form-enviar').submit(function(e){
   //limpa console
   $("#limpar-terminal").click(function(){
     $("#terminal").html('');
+})
+
+//botaoReconectar
+$("#reconectar-bt").click(function(){
+  if (ultimoDispositivo != '0'){
+    var conexao_mac = 'Tentando conectar no : '+ ultimoDispositivo;
+    M.toast({html: conexao_mac});
+    bluetoothSerial.connect(ultimoDispositovoMac,
+      function(){
+      },
+      function(){
+        if(!desconectando){M.toast({html: 'Falha na conexão'})}
+      });
+  }else {
+  }
 })
