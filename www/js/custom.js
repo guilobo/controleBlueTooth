@@ -213,6 +213,7 @@ $("#reconectar-bt").click(function(){
     M.toast({html: conexao_mac});
     bluetoothSerial.connect(ultimoDispositovoMac,
       function(){
+        actionButtom.close();
       },
       function(){
         if(!desconectando){M.toast({html: 'Falha na conexão'})}
@@ -221,18 +222,18 @@ $("#reconectar-bt").click(function(){
   }
 });
 
-
 function enviarDisplay(){
+  var currentdate = new Date();
   var time =  currentdate.getHours() + ":"
               + currentdate.getMinutes() + ":"
               + currentdate.getSeconds();
 
   var textoEnvia = $.parseHTML(time + " -> " + $("#campo-enviar").val() + "\n");
-  $("#terminal").append(textoEnvia);
+  $("#terminal").prepend(textoEnvia);
 
   //Scroll automático
   var textarea = document.getElementById('terminal');
-  textarea.scrollTop = textarea.scrollHeight;
+  //textarea.scrollTop = textarea.scrollHeight;
 
   //limpa campo de enviar mensagem
   $("#campo-enviar").val('');
@@ -262,8 +263,8 @@ bluetoothSerial.read(function (data) {
               + currentdate.getSeconds();
 
   var textoEnvia = $.parseHTML(time + " <- " + data + "\n");
-  $("#terminal").append(textoEnvia);
+  $("#terminal").prepend(textoEnvia);
 
   var textarea = document.getElementById('terminal');
-  textarea.scrollTop = textarea.scrollHeight;
-}, function());
+  //textarea.scrollTop = textarea.scrollHeight;
+}, function(){} );
