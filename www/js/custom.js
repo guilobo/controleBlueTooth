@@ -206,9 +206,28 @@ $("#m2Velocidade").change(function(){
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
 })
 
+//botaoReconectar
+$("#reconectar-bt").click(function(){
+  if (ultimoDispositivo != '0'){
+    var conexao_mac = 'Tentando conectar no : '+ ultimoDispositivo;
+    M.toast({html: conexao_mac});
+    bluetoothSerial.connect(ultimoDispositovoMac,
+      function(){
+      },
+      function(){
+        if(!desconectando){M.toast({html: 'Falha na conexão'})}
+      });
+  }else {
+  }
+});
+
 
 function enviarDisplay(){
-  var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
+  var time =  currentdate.getHours() + ":"
+              + currentdate.getMinutes() + ":"
+              + currentdate.getSeconds();
+
+  var textoEnvia = $.parseHTML(time + " -> " + $("#campo-enviar").val() + "\n");
   $("#terminal").append(textoEnvia);
 
   //Scroll automático
@@ -231,21 +250,20 @@ $('#form-enviar').submit(function(e){
 
 
   //limpa console
-  $("#limpar-terminal").click(function(){
+$("#limpar-terminal").click(function(){
     $("#terminal").html('');
-})
 
-//botaoReconectar
-$("#reconectar-bt").click(function(){
-  if (ultimoDispositivo != '0'){
-    var conexao_mac = 'Tentando conectar no : '+ ultimoDispositivo;
-    M.toast({html: conexao_mac});
-    bluetoothSerial.connect(ultimoDispositovoMac,
-      function(){
-      },
-      function(){
-        if(!desconectando){M.toast({html: 'Falha na conexão'})}
-      });
-  }else {
-  }
-})
+});
+
+//Recebe dados da serial
+bluetoothSerial.read(function (data) {
+  var time =  currentdate.getHours() + ":"
+              + currentdate.getMinutes() + ":"
+              + currentdate.getSeconds();
+
+  var textoEnvia = $.parseHTML(time + " <- " + data + "\n");
+  $("#terminal").append(textoEnvia);
+
+  var textarea = document.getElementById('terminal');
+  textarea.scrollTop = textarea.scrollHeight;
+}, function());

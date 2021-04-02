@@ -108,3 +108,4 @@ $('#configuracao').click(function(){
 
 
     }, 1000);
+    
