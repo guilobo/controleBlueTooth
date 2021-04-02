@@ -238,5 +238,5 @@ $("#botaoMenuConfig").click(function(){
 
   //limpa console
   $("#limpar-terminal").click(function(){
-    $("#terminal").val('');
+    $("#terminal").html('');
 })
