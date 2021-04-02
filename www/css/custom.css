@@ -78,3 +78,13 @@ textarea {
   margin-left: 40%;
   margin-top: 60px;
 }
+
+.centralizarElementoVertical{
+  position: relative;
+  transform: translateY(180%);
+}
+
+#limpar-terminal{
+  color: white;
+  font-size: 40px;
+}
