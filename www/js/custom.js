@@ -222,19 +222,29 @@ $("#botaoMenuConfig").click(function(){
   }
 })
 
+
+function enviarDisplay(){
+  var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
+  $("#terminal").append(textoEnvia);
+
+  //Scroll automático
+  var textarea = document.getElementById('terminal');
+  textarea.scrollTop = textarea.scrollHeight;
+
+  //limpa campo de enviar mensagem
+  $("#campo-enviar").val('');
+}
+
   //Console do controle4
   $("#botao-enviar").click(function(){
-    var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
-    $("#terminal").append(textoEnvia);
+    enviarDisplay();
+  });
 
-    //Scroll automático
-    var textarea = document.getElementById('terminal');
-    textarea.scrollTop = textarea.scrollHeight;
+$('#form-enviar').submit(function(e){
+  e.preventDefault();
+  enviarDisplay();
+});
 
-    //limpa campo de enviar mensagem
-    $("#campo-enviar").val('');
-
-  })
 
   //limpa console
   $("#limpar-terminal").click(function(){
