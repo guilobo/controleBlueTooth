@@ -306,8 +306,14 @@
             <div class="container">
             <div class="row">
               <form>
-                <div class="input-field col s12">
+                <div class="input-field col s11">
                   <textarea id="terminal"  disabled name="terminal" rows="40" cols="20" class="form-control"></textarea>
+                </div>
+
+                <div class="col s1">
+                  <div class="center centralizarElementoVertical">
+                    <i id="limpar-terminal" class="material-icons">delete</i>
+                  </div>
                 </div>
               </form>
             </div>
@@ -317,7 +323,7 @@
             <div class="container">
               <div class="row" style="margin-bottom: 0px !important">
                 <form class="input-field col s12">
-                      <i class="material-icons prefix">send</i>
+                      <i id="botao-enviar" class="material-icons prefix">send</i>
                       <textarea id="campo-enviar" class="materialize-textarea "></textarea>
                       <label for="campo-enviar"></label>
                 </form>
