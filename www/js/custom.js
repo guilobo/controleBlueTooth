@@ -224,7 +224,11 @@ $("#botaoMenuConfig").click(function(){
 
 
 function enviarDisplay(){
-  var textoEnvia = $.parseHTML($("#campo-enviar").val() + "\n");
+  var time =  currentdate.getHours() + ":"
+              + currentdate.getMinutes() + ":"
+              + currentdate.getSeconds();
+
+  var textoEnvia = time + " -> " + $.parseHTML($("#campo-enviar").val() + "\n");
   $("#terminal").append(textoEnvia);
 
   //Scroll automático
@@ -247,6 +251,19 @@ $('#form-enviar').submit(function(e){
 
 
   //limpa console
-  $("#limpar-terminal").click(function(){
+$("#limpar-terminal").click(function(){
     $("#terminal").html('');
-})
+});
+
+//Recebe dados da serial
+bluetoothSerial.read(function (data) {
+  var time =  currentdate.getHours() + ":"
+              + currentdate.getMinutes() + ":"
+              + currentdate.getSeconds();
+
+  var textoEnvia = time + " <- " + data + "\n");
+  $("#terminal").append(textoEnvia);
+
+  var textarea = document.getElementById('terminal');
+  textarea.scrollTop = textarea.scrollHeight;
+}, function());
