@@ -28,74 +28,103 @@ $('#m1-A').click(function(){
 });
 $('#m1-B').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('B', function(){}, function(){});
-  else
-  bluetoothSerial.write('b', function(){}, function(){});});
+ enviarDisplay('B');
+}else{
+  bluetoothSerial.write('b', function(){}, function(){});
+  enviarDisplay('b');
+}});
 $('#m1-C').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('C', function(){}, function(){});
-  else
+ enviarDisplay('C');
+}else{
   bluetoothSerial.write('c', function(){}, function(){});
+  enviarDisplay('c');
+}
 });
 $('#m1-D').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('D', function(){}, function(){});
-  else
+ enviarDisplay('D');
+}else{
   bluetoothSerial.write('d', function(){}, function(){});
+  enviarDisplay('D');
+}
 });
 $('#m1-E').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('E', function(){}, function(){});
-  else
+ enviarDisplay('E');
+}else{
   bluetoothSerial.write('e', function(){}, function(){});
+  enviarDisplay('e');
+}
 });
 $('#m1-seta-esquerda').click(function(){
   bluetoothSerial.write('<', function(){}, function(){});
+  enviarDisplay('<');
 });
 $('#m1-seta-direita').click(function(){
   bluetoothSerial.write('>', function(){}, function(){});
+  enviarDisplay('>');
 });
 
 
 
 $('#m2-F').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('F', function(){}, function(){});
-  else
+ enviarDisplay('F');
+}else{
   bluetoothSerial.write('f', function(){}, function(){});
+  enviarDisplay('f');
+}
 });
 $('#m2-G').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('G', function(){}, function(){});
-  else
+ enviarDisplay('G');
+}else{
   bluetoothSerial.write('g', function(){}, function(){});
+  enviarDisplay('g');
+}
 });
 $('#m2-H').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('H', function(){}, function(){});
-  else
+ enviarDisplay('H');
+}else{
   bluetoothSerial.write('h', function(){}, function(){});
+  enviarDisplay('h');
+}
 });
 $('#m2-I').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('I', function(){}, function(){});
-  else
+ enviarDisplay('I');
+}else{
   bluetoothSerial.write('i', function(){}, function(){});
+  enviarDisplay('i');
+}
 });
 $('#m2-J').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
-  if (estadoCaixaAtual == 'l')
+  if (estadoCaixaAtual == 'l'){
   bluetoothSerial.write('J', function(){}, function(){});
-  else
+ enviarDisplay('J');
+}else{
   bluetoothSerial.write('j', function(){}, function(){});
+  enviarDisplay('j');
+}
 });
 $('#m3-O').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
@@ -238,6 +267,9 @@ function enviarDisplay(dadoEnviado){
   //Scroll automático
   var textarea = document.getElementById('terminal');
   //textarea.scrollTop = textarea.scrollHeight;
+
+  //Enviar os dados pela serial
+  bluetoothSerial.write($("#campo-enviar").val(), function(){}, function(){});
 
   //limpa campo de enviar mensagem
   $("#campo-enviar").val('');
