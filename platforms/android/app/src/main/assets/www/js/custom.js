@@ -52,7 +52,7 @@ $('#m1-D').click(function(){
  enviarDisplay('D');
 }else{
   bluetoothSerial.write('d', function(){}, function(){});
-  enviarDisplay('D');
+  enviarDisplay('d');
 }
 });
 $('#m1-E').click(function(){
@@ -126,6 +126,41 @@ $('#m2-J').click(function(){
   enviarDisplay('j');
 }
 });
+$('#m2-baixo').on("touchstart",function(){
+  bluetoothSerial.write('-', function(){}, function(){});
+  enviarDisplay('-');
+}).on("touchend",function(){
+  bluetoothSerial.write('.', function(){}, function(){});
+  enviarDisplay('.');
+});
+$('#m2-cima').on("touchstart",function(){
+  bluetoothSerial.write('+', function(){}, function(){});
+  enviarDisplay('+');
+}).on("touchend",function(){
+  bluetoothSerial.write('.', function(){}, function(){});
+  enviarDisplay('.');
+});
+$('#m2-esquerda').on("touchstart",function(){
+  bluetoothSerial.write('/', function(){}, function(){});
+  enviarDisplay('/');
+}).on("touchend",function(){
+  bluetoothSerial.write('=', function(){}, function(){});
+  enviarDisplay('=');
+});
+$('#m2-direita').on("touchstart",function(){
+  bluetoothSerial.write('*', function(){}, function(){});
+  enviarDisplay('*');
+}).on("touchend",function(){
+  bluetoothSerial.write('=', function(){}, function(){});
+  enviarDisplay('=');
+});
+
+$("#m2Velocidade").change(function(){
+  var valorVelocidade = $(this).val();
+  bluetoothSerial.write(valorVelocidade, function(){}, function(){});
+})
+
+
 $('#m3-O').click(function(){
   var estadoCaixaAtual = CaixaCaracterBotao(this);
   if (estadoCaixaAtual == 'l')
@@ -236,6 +271,7 @@ $('#m3-N').change(function(){
 $("#m2Velocidade").change(function(){
   var valorVelocidade = $(this).val();
   bluetoothSerial.write(valorVelocidade, function(){}, function(){});
+  enviarDisplay($(this).val())
 })
 
 //botaoReconectar
