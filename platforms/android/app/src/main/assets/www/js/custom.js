@@ -377,23 +377,20 @@ $("#limpar-terminal").click(function(){
 });
 
 //Recebe dados da serial
-<<<<<<< HEAD
-bluetoothSerial.subscribe('\n', function (data) {
-=======
-setInterval(function(){
-bluetoothSerial.read(function (data) {
->>>>>>> 9add6f4be329c4c344edcad1e609facde71772e4
+  setInterval(function(){
+bluetoothSerial.read(function (data){
+  if (data){
+  var currentdate = new Date();
   var time =  currentdate.getHours() + ":"
               + currentdate.getMinutes() + ":"
               + currentdate.getSeconds();
 
-  M.toast({html: 'Recebido dados da serial read'});
-
-  var textoEnvia = $.parseHTML(time + " <- " + data + "\n");
+  var textoEnvia = $.parseHTML(time + " <- " + data);
   $("#terminal").prepend(textoEnvia);
 
   //Scroll automático
   //var textarea = document.getElementById('terminal');
   //textarea.scrollTop = textarea.scrollHeight;
+}
 }, function(){} );
-},100)
+},500)
