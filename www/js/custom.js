@@ -377,7 +377,7 @@ $("#limpar-terminal").click(function(){
 });
 
 //Recebe dados da serial
-bluetoothSerial.read(function (data) {
+bluetoothSerial.subscribe('\n', function (data) {
   var time =  currentdate.getHours() + ":"
               + currentdate.getMinutes() + ":"
               + currentdate.getSeconds();
