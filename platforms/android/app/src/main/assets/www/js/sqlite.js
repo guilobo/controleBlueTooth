@@ -32,6 +32,11 @@ function CarregaDadosIniciais (){
     ultimaTab = rs.rows.item(0).ultimaTab;
     ultimoDispositivo = rs.rows.item(0).ultimoDispositivo;
     ultimoDispositovoMac = rs.rows.item(0).ultimoDispositovoMac;
+    if (!ultimoDispositivo){
+      $("#reconectar-bt").parent().hide();
+    }else{
+      $("#reconectar-bt").parent().show();
+    }
     //abre a tab correta e devini o botão reconectar
     tabs.select(ultimaTab);
   });
