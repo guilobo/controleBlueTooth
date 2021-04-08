@@ -55,6 +55,7 @@ function AtualizaOUltimoDispositivo(nome,mac){
   }, function(error) {
     M.toast({html: "Erro no update bt"});
   }, function() {
-    //Materialize.toast('UPDATE database OK', 3000, 'rounded red center-align');
+    ultimoDispositivo = nome;
+    ultimoDispositovoMac = mac;
   });
 }

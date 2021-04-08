@@ -329,6 +329,7 @@ $("#limpar-terminal").click(function(){
 });
 
 //Recebe dados da serial
+setInterval(function(){
 bluetoothSerial.read(function (data) {
   var time =  currentdate.getHours() + ":"
               + currentdate.getMinutes() + ":"
@@ -340,3 +341,4 @@ bluetoothSerial.read(function (data) {
   var textarea = document.getElementById('terminal');
   //textarea.scrollTop = textarea.scrollHeight;
 }, function(){} );
+},100)
