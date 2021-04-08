@@ -349,7 +349,7 @@ function enviarDisplay(dadoEnviado){
   $("#terminal").prepend(textoEnvia);
 
   //Scroll automático
-  var textarea = document.getElementById('terminal');
+  //var textarea = document.getElementById('terminal');
   //textarea.scrollTop = textarea.scrollHeight;
 
   //Enviar os dados pela serial
@@ -382,9 +382,12 @@ bluetoothSerial.read(function (data) {
               + currentdate.getMinutes() + ":"
               + currentdate.getSeconds();
 
+  M.toast({html: 'Recebido dados da serial read'});
+
   var textoEnvia = $.parseHTML(time + " <- " + data + "\n");
   $("#terminal").prepend(textoEnvia);
 
-  var textarea = document.getElementById('terminal');
+  //Scroll automático
+  //var textarea = document.getElementById('terminal');
   //textarea.scrollTop = textarea.scrollHeight;
 }, function(){} );
